@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  background-color: #1e1e1e;
+  color: #61dafb;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #fff;
+}

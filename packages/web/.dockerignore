@@ -1,0 +1,14 @@
+node_modules
+build
+.git
+.gitignore
+.vscode
+Dockerfile
+*.log
+src/**/*.test.*
+src/**/*.spec.*
+coverage
+.env.local
+.env.development
+.env.test
+.DS_Store
