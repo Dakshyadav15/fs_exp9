@@ -1,23 +1,38 @@
 version: '3.8'
 
 services:
-  backend:
-    build:
-      context: ./backend       # path to your backend folder
-    container_name: backend
+  backend1:
+    build: ./backend
+    container_name: backend1
+    networks:
+      - app-network
+
+  backend2:
+    build: ./backend
+    container_name: backend2
+    networks:
+      - app-network
+
+  loadbalancer:
+    image: nginx:alpine
+    container_name: loadbalancer
     ports:
-      - "3000:3000"
+      - "3000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend1
+      - backend2
     networks:
       - app-network
 
   frontend:
-    build:
-      context: ./frontend      # path to your frontend folder
+    build: ./frontend
     container_name: frontend
     ports:
       - "8080:80"
     depends_on:
-      - backend
+      - loadbalancer
     networks:
       - app-network
 
